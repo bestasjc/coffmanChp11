@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<htlm lang="en">
+<!-- Comment tag -->
+
+<!--    Documentation segment
+	website: Form
+	web page: form.htm
+	author : Jcoffman
+	Date Created : October.2013
+-->
+
+<head>
+<meta charset="utf-8">
+<title>Form</title>
+
+<link href="style/css.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link href='http://fonts.googleapis.com/css?family=New+Rocker' rel='stylesheet' type='text/css'>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link href="style/css.css" rel="stylesheet" type="text/css" />
+
+<script> 
+
+
+
+function newDoc()
+{
+  window.location.assign("../index.htm")
+}
+
+</script> 
+
+<script> 
+function newDoc1()
+{
+  window.location.assign("about.htm")
+}
+
+</script> 
+
+<script> 
+function newDoc2()
+{
+  window.location.assign("member.htm")
+}
+</script> 
+
+<script> 
+function newDoc3()
+{
+  window.location.assign("#")
+}
+</script> 
+
+<style>
+body
+{
+background-image:url('img/reb5.jpg');
+}
+</style>
+
+
+  
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      event: "click hoverintent"
+    });
+  });
+ 
+  /*
+   * hoverIntent | Copyright 2013 James Coffman
+   * http://cherne.net/brian/resources/jquery.hoverIntent.html
+   * modified by the jQuery UI team
+   */
+  $.event.special.hoverintent = {
+    setup: function() {
+      $( this ).bind( "mouseover", jQuery.event.special.hoverintent.handler );
+    },
+    teardown: function() {
+      $( this ).unbind( "mouseover", jQuery.event.special.hoverintent.handler );
+    },
+    handler: function( event ) {
+      var currentX, currentY, timeout,
+        args = arguments,
+        target = $( event.target ),
+        previousX = event.pageX,
+        previousY = event.pageY;
+ 
+      function track( event ) {
+        currentX = event.pageX;
+        currentY = event.pageY;
+      };
+ 
+      function clear() {
+        target
+          .unbind( "mousemove", track )
+          .unbind( "mouseout", clear );
+        clearTimeout( timeout );
+      }
+ 
+      function handler() {
+        var prop,
+          orig = event;
+ 
+        if ( ( Math.abs( previousX - currentX ) +
+            Math.abs( previousY - currentY ) ) < 7 ) {
+          clear();
+ 
+          event = $.Event( "hoverintent" );
+          for ( prop in orig ) {
+            if ( !( prop in event ) ) {
+              event[ prop ] = orig[ prop ];
+            }
+          }
+          // Prevent accessing the original event since the new event
+          // is fired asynchronously and the old event is no longer
+          // usable (#6028)
+          delete event.originalEvent;
+ 
+          target.trigger( event );
+        } else {
+          previousX = currentX;
+          previousY = currentY;
+          timeout = setTimeout( handler, 100 );
+        }
+      }
+ 
+      timeout = setTimeout( handler, 100 );
+      target.bind({
+        mousemove: track,
+        mouseout: clear
+      });
+    }
+  };
+  </script>
+
+</head>
+
+<body>
+
+<div id="wrapper"><!--center wrapper-->
+
+<div id="master" align="center"><!--master-->
+
+
+
+
+<div id="navigation"align="left"><!--navigation-->
+
+	<div id="accordion">
+  <h3>Member Information</h3>
+  <div>
+     <html>
+<form class="Information ">
+<fieldset>
+<legend>Member Information</legend>
+
+
+<label class="fixedwidth">Lastname</label>
+<input type="text" lastname="Lastname" />
+<br />
+
+<label class="fixedwidth">Firstname</label>
+<input type="text" firstname="Firstname" />
+<br />
+
+<label class="fixedwidth">Address</label>
+<input type="text" address="Address" />
+<br />
+
+<label class="fixedwidth">City</label>
+<input type="text" city="City" />
+<br />
+
+<label class="fixedwidth">State</label>
+<select>
+	<option selected="selected"></option>
+	<option value="">AL</option>
+	<option value="">AK</option>
+	<option value="">AZ</option>
+	<option value="">AR</option>
+	<option value="">CA</option>
+	<option value="">CO</option>
+	<option value="">CT</option>
+	<option value="">DE</option>
+	<option value="">DC</option>
+	<option value="">FL</option>
+	<option value="">GA</option>
+	<option value="">HI</option>
+	<option value="">ID</option>
+	<option value="">IL</option>
+	<option value="">IN</option>
+	<option value="">IA</option>
+	<option value="">KS</option>
+	<option value="">KY</option>
+	<option value="">LA</option>
+	<option value="">ME</option>
+	<option value="">MD</option>
+	<option value="">MA</option>
+	<option value="">MI</option>
+	<option value="">MN</option>
+	<option value="">MS</option>
+	<option value="">MO</option>
+	<option value="">MT</option>
+	<option value="">NE</option>
+	<option value="">NV</option>
+	<option value="">NH</option>
+	<option value="">NJ</option>
+	<option value="">NM</option>
+	<option value="">NY</option>
+	<option value="">NC</option>
+	<option value="">ND</option>
+	<option value="">OH</option>
+	<option value="">OK</option>
+	<option value="">OR</option>
+	<option value="">PA</option>
+	<option value="">RI</option>
+	<option value="">SC</option>
+	<option value="">SD</option>
+	<option value="">TN</option>
+	<option value="">TX</option>
+	<option value="">UT</option>
+	<option value="">VT</option>
+	<option value="">VA</option>
+	<option value="">WA</option>
+	<option value="">WV</option>
+	<option value="">WI</option>
+	<option value="">WY</option>
+	
+</select>
+<br />
+
+<label class="fixedwidth">Zipcode</label>
+<input type="text" zipcode="Zipcode" />
+<br />
+
+<label class="fixedwidth">Primary Phone</label>
+<input type="text" primary phone="Primary Phone" />	
+<br />
+
+<label class="fixedwidth">E-Mail</label>
+<input type="text" e-mail="E-Mail" />	
+<br />
+<div align="center">
+<input type="submit" name="submit" />
+
+<input type="reset" name="Reset" />
+</div>
+
+</fieldset>
+<br />
+  </div>
+  <h3>Billing Information</h3>
+  <div>
+    <form class="Billing ">
+<fieldset>
+<legend>Billing Information</legend>
+
+<br />
+
+<label class="fixedwidth">Billing Same as Shipping</label>
+<input type="radio" value="yes"/>
+<br /><br />
+<br />
+
+<label class="fixedwidth">Lastname</label>
+<input type="text" />
+<br /><br />
+
+<label class="fixedwidth">Firstname</label>
+<input type="text" />
+<br /><br />
+
+<label class="fixedwidth">Address</label>
+<input type="text" />
+<br /><br />
+
+<label class="fixedwidth">City</label>
+<input type="text" />
+<br /><br />
+
+<label class="fixedwidth">State</label>
+<select>
+	<option selected="selected"></option>
+	<option value="">AL</option>
+	<option value="">AK</option>
+	<option value="">AZ</option>
+	<option value="">AR</option>
+	<option value="">CA</option>
+	<option value="">CO</option>
+	<option value="">CT</option>
+	<option value="">DE</option>
+	<option value="">DC</option>
+	<option value="">FL</option>
+	<option value="">GA</option>
+	<option value="">HI</option>
+	<option value="">ID</option>
+	<option value="">IL</option>
+	<option value="">IN</option>
+	<option value="">IA</option>
+	<option value="">KS</option>
+	<option value="">KY</option>
+	<option value="">LA</option>
+	<option value="">ME</option>
+	<option value="">MD</option>
+	<option value="">MA</option>
+	<option value="">MI</option>
+	<option value="">MN</option>
+	<option value="">MS</option>
+	<option value="">MO</option>
+	<option value="">MT</option>
+	<option value="">NE</option>
+	<option value="">NV</option>
+	<option value="">NH</option>
+	<option value="">NJ</option>
+	<option value="">NM</option>
+	<option value="">NY</option>
+	<option value="">NC</option>
+	<option value="">ND</option>
+	<option value="">OH</option>
+	<option value="">OK</option>
+	<option value="">OR</option>
+	<option value="">PA</option>
+	<option value="">RI</option>
+	<option value="">SC</option>
+	<option value="">SD</option>
+	<option value="">TN</option>
+	<option value="">TX</option>
+	<option value="">UT</option>
+	<option value="">VT</option>
+	<option value="">VA</option>
+	<option value="">WA</option>
+	<option value="">WV</option>
+	<option value="">WI</option>
+	<option value="">WY</option>
+	
+</select>
+<br /><br />
+
+<label class="fixedwidth">Zipcode</label>
+<input type="text" />
+<br /><br />
+
+<div align="center">
+<input type="submit" name="Submit" />
+
+<input type="reset" name="Reset" />
+</div>
+
+</fieldset>
+
+</form>
+  </div>
+  <h3>Membership Dues</h3>
+  <div>
+    <form class="Dues">
+<fieldset>
+<legend>Membership Dues</legend>
+
+<br />
+
+<label class="fixedwidth">Credit Card</label>
+<select>
+	<option selected="selected"></option>
+	<option value="">American Express</option>
+	<option value="">Bank of America</option>
+	<option value="">Discover</option>
+	<option value="">Visa</option>
+	
+</select>
+<br />
+
+<label class="fixedwidth">Card Number</label>
+<input type="text" />	
+<br />
+
+<label class="fixedwidth">Expiration Month</label>
+<select>
+	<option selected="selected"></option>
+	<option value="">JAN</option>
+	<option value="">FEB</option>
+	<option value="">MAR</option>
+	<option value="">APR</option>
+	<option value="">MAY</option>
+	<option value="">JUN</option>
+	<option value="">JUL</option>
+	<option value="">AUG</option>
+	<option value="">SEP</option>
+	<option value="">OCT</option>
+	<option value="">NOV</option>
+	<option value="">DEC</option>
+</select>
+<br />
+
+<label class="fixedwidth">Year</label>
+<select>
+	<option selected="selected"></option>
+	<option value="">2014</option>
+	<option value="">2015</option>
+	<option value="">2016</option>
+	<option value="">2017</option>
+	
+</select>
+<br />
+
+<label class="fixedwidth">Security</label>
+<input type="text" />	
+<br />
+<fieldset>
+<span class="small_1" align="center">Each member is expected to donate at least $25.00/mo. to the M.C. Treasury.</span>
+</fieldset>
+
+<div align="center">
+<input type="submit" name="Submit" />
+
+<input type="reset" name="Reset" />
+</div>
+
+</fieldset>
+<br />
+</form>
+    
+  </div>
+  <h3>Subscription Options</h3>
+  <div>
+      <form class="Options">
+<fieldset>
+<legend>Subscription Options</legend>
+
+<br />
+<label class="fixedwidth">Monthly Subscription</label>
+<select>
+	<option selected="selected"></option>
+	<option value="">One Month $13.99</option>
+	<option value="">Three Months $20.00</option>
+	<option value="">Six Months $35.00</option>
+	<option value="">One Year $40.00</option>
+	
+</select>
+	
+<br />
+
+<label class="fixedwidth">Life Time $90.00</label>
+<input type="radio" />
+<br /><br />
+<div align="center">
+<input type="submit" name="Submit" />
+
+<input type="reset" name="Reset" />
+</div>
+
+</fieldset>
+<br />
+<fieldset>
+<input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+<input type="checkbox" name="vehicle" value="Car">I don't own a bike
+
+</fieldset>
+<br />
+<fieldset>
+<legend>Comments</legend>
+<br />
+<div align="center">
+
+<textarea ></textarea>
+</div>
+
+<div align="center">
+<input type="submit" name="Submit" />
+
+<input type="reset" name="Reset" />
+</div>
+</fieldset>
+
+</form>
+  </div>
+</div>
+
+
+</div><!--end navigation-->
+
+
+
+<div id="contents_1"align="center"><!--contents_1-->
+
+<img src="img/reb.jpg" style="cursor:pointer"  width="308" height="125" /><img src="img/reb2.jpg" style="cursor:pointer"  width="302" height="125" /><img src="img/reb3.jpg" style="cursor:pointer"  width="308" height="125" /> 
+
+
+</div><!--end contents_1-->
+
+
+
+
+
+
+<div id="footer"allign"center"><!--footer-->
+
+
+<div align="center">
+<p>All images are personal.</p>
+
+<li>James Coffman</li>
+ <div align="center">
+   <input type="button" style="cursor:pointer" value="Home" onclick="newDoc()">
+    <input type="button" style="cursor:pointer" value="About" onclick="newDoc1()">
+     <input type="button" style="cursor:pointer" value="Guide-Lines" onclick="newDoc2()">
+       <input type="button" style="cursor:pointer" value="Form" onclick="newDoc3()">
+   </div
+
+</div>
+</div><!--end footer-->
+
+</div><!--end master-->
+
+
+</div><!--center wrapper-->
+</body>
+
+</html>

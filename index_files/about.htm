@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<htlm lang="en">
+<!-- Comment tag -->
+
+<!--    Documentation segment
+	website: Form
+	web page: about.htm
+	author : Jcoffman
+	Date Created : October.2013
+-->
+
+<head>
+<meta charset="utf-8">
+<title>Form</title>
+
+<link href="style1/css.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link href='http://fonts.googleapis.com/css?family=New+Rocker' rel='stylesheet' type='text/css'>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link href="style1/css.css" rel="stylesheet" type="text/css" />
+
+<script> 
+
+
+
+function newDoc()
+{
+  window.location.assign("../index.htm")
+}
+
+</script> 
+
+<script> 
+function newDoc1()
+{
+  window.location.assign("#")
+}
+
+</script> 
+
+<script> 
+function newDoc2()
+{
+  window.location.assign("member.htm")
+}
+</script> 
+
+<script> 
+function newDoc3()
+{
+  window.location.assign("form.htm")
+}
+</script> 
+
+<style>
+body
+{
+background-image:url('img/reb5.jpg');
+}
+</style>
+
+
+
+  
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      event: "click hoverintent"
+    });
+  });
+ 
+  /*
+   * hoverIntent | Copyright 2013 James Coffman
+   * http://cherne.net/brian/resources/jquery.hoverIntent.html
+   * modified by the jQuery UI team
+   */
+  $.event.special.hoverintent = {
+    setup: function() {
+      $( this ).bind( "mouseover", jQuery.event.special.hoverintent.handler );
+    },
+    teardown: function() {
+      $( this ).unbind( "mouseover", jQuery.event.special.hoverintent.handler );
+    },
+    handler: function( event ) {
+      var currentX, currentY, timeout,
+        args = arguments,
+        target = $( event.target ),
+        previousX = event.pageX,
+        previousY = event.pageY;
+ 
+      function track( event ) {
+        currentX = event.pageX;
+        currentY = event.pageY;
+      };
+ 
+      function clear() {
+        target
+          .unbind( "mousemove", track )
+          .unbind( "mouseout", clear );
+        clearTimeout( timeout );
+      }
+ 
+      function handler() {
+        var prop,
+          orig = event;
+ 
+        if ( ( Math.abs( previousX - currentX ) +
+            Math.abs( previousY - currentY ) ) < 7 ) {
+          clear();
+ 
+          event = $.Event( "hoverintent" );
+          for ( prop in orig ) {
+            if ( !( prop in event ) ) {
+              event[ prop ] = orig[ prop ];
+            }
+          }
+          // Prevent accessing the original event since the new event
+          // is fired asynchronously and the old event is no longer
+          // usable (#6028)
+          delete event.originalEvent;
+ 
+          target.trigger( event );
+        } else {
+          previousX = currentX;
+          previousY = currentY;
+          timeout = setTimeout( handler, 100 );
+        }
+      }
+ 
+      timeout = setTimeout( handler, 100 );
+      target.bind({
+        mousemove: track,
+        mouseout: clear
+      });
+    }
+  };
+  </script>
+
+</head>
+
+<body>
+
+<div id="wrapper"><!--center wrapper-->
+
+<div id="master" align="center"><!--master-->
+
+
+
+
+<div id="navigation"align="left"><!--navigation-->
+
+	<div id="accordion">
+  <h3>Founder</h3>
+  <div>
+     <html>
+	<p1>My name is James Coffman, I am the founder of Honda Rebel M.C.  I began collecting the Honda Rebel several years ago.  Since then I have customized several Honda Motorcycles into fascinating pieces of art.</p1>
+  	
+</div>
+  <h3>Locations</h3>
+  <div>
+    <p1>Currently we have Three large branches with-in the U.S:  Dallas, Tx (Southern).<br> Winston-Salem, Nc (North-East).<br>  Pittsburgh, Pa (Northern).</p1>
+  </div>
+  <h3>Location Leaders</h3>
+  <div>
+      <p1>Southern: Jeff Coffman.<br>  North-East: James Coffman Jr.<br>  Northern: James Coffman III.</p1><br>
+        <p1>  If you would like to start your own branch with us, please send an E-Mail by clicking here:  <a href="mailto:bestasjc13.com?Subject=Web-%20Knect" target="_top">
+bestasjc13@gmail.com</a></p1>
+  </div>
+</div>
+
+
+</div><!--end navigation-->
+
+
+<div id="contents"align="center"><!--contents-->
+<img src="img/re1.jpg" style="cursor:pointer"  width="900" height="250" />
+</div><!--end contents-->
+
+<div id="contents_1"align="center"><!--contents_1-->
+
+<img src="img/reb.jpg" style="cursor:pointer"  width="308" height="125" /><img src="img/re.jpg" style="cursor:pointer"  width="302" height="125" /><img src="img/reb3.jpg" style="cursor:pointer"  width="308" height="125" /> 
+
+
+</div><!--end contents_1-->
+
+
+
+
+
+
+<div id="footer"allign"center"><!--footer-->
+
+
+<div align="center">
+<p>Motorcycle images are personal, logos belong to Honda.</p>
+
+<li>James Coffman-Google Images</li>
+ <div align="center">
+   <input type="button" style="cursor:pointer" value="Home" onclick="newDoc()">
+    <input type="button" style="cursor:pointer" value="About" onclick="newDoc1()">
+     <input type="button" style="cursor:pointer" value="Guide-Lines" onclick="newDoc2()">
+       <input type="button" style="cursor:pointer" value="Form" onclick="newDoc3()">
+   </div
+
+</div>
+</div><!--end footer-->
+
+</div><!--end master-->
+
+
+</div><!--center wrapper-->
+</body>
+
+</html>

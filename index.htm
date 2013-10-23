@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<htlm lang="en">
+<!-- Comment tag -->
+
+<!--    Documentation segment
+	website: Form
+	web page: index.htm
+	author : Jcoffman
+	Date Created : October.2013
+-->
+
+<head>
+<meta charset="utf-8">
+<title>Form</title>
+
+<link href="index_files/style/css.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<link href='http://fonts.googleapis.com/css?family=New+Rocker' rel='stylesheet' type='text/css'>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link href="index_files/style/css.css" rel="stylesheet" type="text/css" />
+<script> 
+
+function newDoc()
+{
+  window.location.assign("#")
+}
+
+</script> 
+
+<script> 
+function newDoc1()
+{
+  window.location.assign("index_files/about.htm")
+}
+
+</script> 
+
+<script> 
+function newDoc2()
+{
+  window.location.assign("index_files/member.htm")
+}
+</script> 
+
+<script> 
+function newDoc3()
+{
+  window.location.assign("index_files/form.htm")
+}
+</script> 
+
+
+
+  
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      event: "click hoverintent"
+    });
+  });
+ 
+  /*
+   * hoverIntent | Copyright 2013 James Coffman
+   * http://cherne.net/brian/resources/jquery.hoverIntent.html
+   * modified by the jQuery UI team
+   */
+  $.event.special.hoverintent = {
+    setup: function() {
+      $( this ).bind( "mouseover", jQuery.event.special.hoverintent.handler );
+    },
+    teardown: function() {
+      $( this ).unbind( "mouseover", jQuery.event.special.hoverintent.handler );
+    },
+    handler: function( event ) {
+      var currentX, currentY, timeout,
+        args = arguments,
+        target = $( event.target ),
+        previousX = event.pageX,
+        previousY = event.pageY;
+ 
+      function track( event ) {
+        currentX = event.pageX;
+        currentY = event.pageY;
+      };
+ 
+      function clear() {
+        target
+          .unbind( "mousemove", track )
+          .unbind( "mouseout", clear );
+        clearTimeout( timeout );
+      }
+ 
+      function handler() {
+        var prop,
+          orig = event;
+ 
+        if ( ( Math.abs( previousX - currentX ) +
+            Math.abs( previousY - currentY ) ) < 7 ) {
+          clear();
+ 
+          event = $.Event( "hoverintent" );
+          for ( prop in orig ) {
+            if ( !( prop in event ) ) {
+              event[ prop ] = orig[ prop ];
+            }
+          }
+          // Prevent accessing the original event since the new event
+          // is fired asynchronously and the old event is no longer
+          // usable (#6028)
+          delete event.originalEvent;
+ 
+          target.trigger( event );
+        } else {
+          previousX = currentX;
+          previousY = currentY;
+          timeout = setTimeout( handler, 100 );
+        }
+      }
+ 
+      timeout = setTimeout( handler, 100 );
+      target.bind({
+        mousemove: track,
+        mouseout: clear
+      });
+    }
+  };
+  </script>
+<style>
+body
+{
+background-image:url('index_files/img/reb5.jpg');
+}
+</style>
+</head>
+
+<body>
+
+<div id="wrapper"><!--center wrapper-->
+
+<div id="master" align="center"><!--master-->
+
+
+
+
+<div id="navigation"align="left"><!--navigation-->
+
+	<div id="accordion">
+  <h3>Welcome</h3>
+  <div>
+	<p1>Welcome to my Honda Rebel website!</p1>
+     <html>
+
+  </div>
+  <h3>Purpose</h3>
+  <div>
+       <p1>My purpose is to connect all Honda Rebel enthusiasts into one awesome M.C. Club.</p1>
+  </div>
+  <h3>Mission Statement</h3>
+  <div>
+    <p1>"Our Honor is Loyalty!"<p1>
+  </div>
+</div>
+<div id="header"align="center"><!--header-->
+<span class="large"align-text="center">SINCE 2013</span>
+</div><!--end header-->
+</div><!--end navigation-->
+
+
+<div id="contents"align="center"><!--contents-->
+<img src="index_files/img/reb9.jpg" style="cursor:pointer"  width="900" height="300" />
+</div><!--end contents-->
+
+<div id="contents_1"align="center"><!--contents_1-->
+
+<img src="index_files/img/reb8.jpg" style="cursor:pointer"  width="308" height="125" /><img src="index_files/img/reb6.jpg" style="cursor:pointer"  width="302" height="125" /><img src="index_files/img/reb7.jpg" style="cursor:pointer"  width="308" height="125" /> 
+
+
+</div><!--end contents_1-->
+
+
+
+
+
+
+<div id="footer"allign"center"><!--footer-->
+
+
+<div align="center">
+<p>Motorcycle images are personal, logos belong to Honda.</p>
+
+<li>James Coffman-Google Images</li>
+ <div align="center">
+   <input type="button" style="cursor:pointer" value="Home" onclick="newDoc()">
+    <input type="button" style="cursor:pointer" value="About" onclick="newDoc1()">
+     <input type="button" style="cursor:pointer" value="Guide-Lines" onclick="newDoc2()">
+       <input type="button" style="cursor:pointer" value="Form" onclick="newDoc3()">
+   </div
+
+</div>
+</div><!--end footer-->
+
+</div><!--end master-->
+
+
+</div><!--center wrapper-->
+</body>
+
+</html>
